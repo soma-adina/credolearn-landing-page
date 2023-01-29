@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+$theme-color:#ed1c24;
+$second-color:#fd2111;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+img{
+    width: 100%;
+}
+nav{
+    width: 100%;
+    display: flex;
+    flex: wrap;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 0;
+    box-shadow: 0 10px 20px grey;
+    .nav-logo{
+        width: 45%;
+        img{
+            width: 100px;
+        }
+    }
+    .icon{
+        color:$theme-color;
+        font-size: 1.5rem;
+        display: none;
+    }
+    .menu{
+        width: 45%;
+        display: flex;
+        justify-content:space-evenly ;
+        align-items: center;
+        li{
+            list-style: none;
+            a{
+                color:$theme-color;
+                font-size: 20px;
+                text-decoration: none;
+            }
+        }
+
+    }
+}
+
+@media (max-width:600px){
+    nav{
+        .icon{
+            display: block;
+            cursor: pointer;
+        }
+        .active{
+            color :pink
+         }
+        .menu{
+            position: absolute;
+            top:-1000%;
+            background-color: white;
+            box-shadow: 7px 7px 20px grey;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 0;
+            z-index: 30;
+            right: 0;
+            transition: top 1s;
+           
+            li{
+                padding: 1rem 0;
+                &:hover{
+                    background-color: white;
+                }
+                
+                 
+            }
+            
+            
+        }
+        .active{
+            top:100%;
+         }
+    }
+}
+
+
+
+.banner{
+    width: 100%;
+    position: relative;
+ 
+    .banner-img{
+        position: relative;
+    }
+    .banner-content{
+        position: absolute;
+        width: 55%;
+        top:0;
+        height: 100%;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-image: linear-gradient(to right, black,rgba(0, 0, 0, 0));
+        color:white;
+        .content-heading{
+            font-weight: 400;
+            font-size: 20px;
+            margin-bottom: 1rem;
+            &::after{
+                content: "";
+                height: 3px;
+                width: 60%;
+                background-color: $second-color;
+                display: block;
+            }
+        }
+        .content-text{
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+        }
+        .banner-btn{
+            display: block;
+            margin-top: .5rem;
+            .btn{
+                display: inline-block;
+                padding: 1rem;
+                background-color: $second-color;
+                color: white;
+                font-size: 20px;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+            
+        }
+    }
+}
+@media (max-width:890px){
+    .banner{
+        .banner-content{
+            width: 100%;
+            .content-heading{
+                font-size: 10px;
+            }
+            .content-text{
+                display: none;
+            }
+            .banner-btn{
+                .btn{
+                    font-size: 1rem;
+                    padding: .5rem;
+                }
+            }
+            
+        }
+    }
+    
+}
+
+//courses////////
+
+.container{
+    width: 89%;
+    margin: 2rem auto;
+    h1{
+        color: $second-color;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        margin: 1rem 0;
+    }
+    .h3{
+        text-align: center;
+        color: $second-color;
+        margin-bottom: 2rem;
+
+    }
+}
+.card-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    .course-card{
+        width: 23%;
+        margin: 15px 0;
+        box-shadow: 7px 7px 10px grey;
+        position: relative;
+        .cd-content{
+            padding: 25px 18px;
+            .cd-title{
+                color: $second-color;
+                text-transform: capitalize;
+            }
+            .main-content{
+                font-size: 1.12rem;
+                text-align: justify;
+                margin: .8rem 0;
+                .view{
+                    background-color: $second-color;
+                    color: white;
+                    display: inline-block;
+                    padding: 13px;
+                    margin-top: .6rem;
+                    text-decoration: none;
+                    border-radius: 7px;
+                    font-size: 0.95rem;
+                }
+            }
+        }
+        .poppin{
+            width:100%;
+            background-color: white;
+            border:1px solid rgba(255, 68, 0, 0.541);
+            box-shadow: 4px 4px 15px rgb(29, 28, 28);
+            position: absolute;
+            border-radius: 5px;
+            top: 0;
+            left: 20%;
+            z-index: 10;
+            padding: 20px;
+            text-align: justify;
+            opacity: 0;
+            transition: opacity .5s;
+            &:hover{
+                opacity: 1;
+            }
+            .title{
+                color: $second-color;
+                line-height: 1.8rem;
+            }
+            .pop-list{
+                padding: inherit;
+                line-height:1.8rem;
+                .buy{
+                    background-color: $second-color;
+                    color: white;
+                    display: inline-block;
+                    padding: 9px 13px;
+                    margin-top: .6rem;
+                    text-decoration: none;
+                    border-radius: 7px;
+                    font-size: 0.95rem;
+                }
+            }
+        }
+    }
+}
+@media(max-width:890px){
+    .card-container{
+        .course-card{
+            width: 48%;
+        }
+    }
+
+}
+@media(max-width:560px){
+    .card-container{
+        .course-card{
+            width: 80%;
+            margin: 15px auto;
+            
+        }
+    }
+    .poppin{
+        display: none;
+    }
+
+}
+
+.media-container{
+    width: 100%;
+    position: relative;
+    padding: 50px 0;
+    display: flex;
+    height: 500px;
+    align-items: center;
+    .md-shape{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        top: 0;
+        background-color: $second-color;
+        clip-path: circle(35% at 75% 20%);
+        z-index: 3;
+        
+    }
+    .media-content{
+        width: 89%;
+        background-color: white;
+        margin: 50px auto;
+        position: relative;
+        z-index: 10;
+        box-shadow: 4px 4px 15px rgb(29, 28, 28);
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        .md-img{
+            padding: 20px;
+            width: 38%;
+        }
+        .md-main{
+            width:60%;
+            padding: 20px;
+            line-height: 2rem;
+            h3{
+                color: $second-color;
+            }
+            p{
+                font-size: 1.1rem;
+            }
+        }
+
+
+    }
+}
+@media(max-width:560px) {
+    .media-container{
+        height: 600px;
+        .media-content{
+            .md-img{
+                width: 100%;
+            }
+            .md-main{
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+///testimonials////@at-root
+
+.test-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-shadow: 4px 4px 15px rgb(29, 28, 28);
+    padding: 20px;
+    border-radius: 10px;
+    .vid-card{
+        width: 32%;
+        video{
+            width: 100%;
+        }
+    }
+}
+@media (max-width:598px){
+    .test-container{
+        .vid-card{
+            width:80%;
+            margin: 10px auto;
+        }
+    }
+}
+
+
+//footer//////
+footer{
+    background-color: rgb(13, 10, 20);
+    margin-top: 2rem;
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
